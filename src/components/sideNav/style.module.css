@@ -1,0 +1,88 @@
+@font-face {
+    font-family: "Proxima";
+    src: url("../../fonts/FontsFree-Net-ProximaNova-Regular.ttf") format("woff2"); /* Modern Browsers */
+    
+  }
+.sideNav {
+  width: 15.3125rem;
+  height: 100vh;
+  /* flex-shrink: 0; */
+  border-right: 1px solid #18262f;
+  background-color: #121c23;
+  color: #fff;
+  padding: 1.87rem 0;
+  position: fixed;
+  left: 0;
+}
+.first {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.0625rem;
+  padding: 0 2.5rem;
+}
+.first .row {
+  display: flex;
+  gap: 0.68rem;
+  cursor: pointer;
+}
+.first .row .icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.first .row .text {
+  color: #fff;
+  font-family: "Proxima" ;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.4375rem; /* 164.286% */
+}
+.mines {
+  cursor: pointer;
+  display: flex;
+  width: 15.25rem;
+  padding: 0.75rem 2.5rem;
+  align-items: center;
+  margin-top: 2.0625rem;
+  gap: 0.5rem;
+  border-left: 1px solid #01fe86;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 134, 0.08) 0%,
+    rgba(0, 255, 134, 0) 100%
+  );
+}
+.mines .icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  flex-shrink: 0;
+}
+.mines .text {
+  color: #01fe86;
+  font-family: "Proxima" ;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.4375rem; /* 164.286% */
+}
+.breakLine {
+  width: 11.3125rem;
+  height: 0.0625rem;
+  flex-shrink: 0;
+  background: #222c39;
+  margin: 2.5rem auto 1.5rem auto;
+}
+
+.socialIcons {
+  display: inline-flex;
+  gap: 1rem;
+  position: fixed;
+  bottom: 2rem;
+  left: 4rem;
+}
+.socialIcons .icons {
+  width: 1.16575rem;
+  height: 0.94975rem;
+  cursor: pointer;
+}
