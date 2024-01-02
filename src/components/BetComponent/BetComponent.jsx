@@ -195,8 +195,7 @@ const BetComponent = () => {
     transform: "translateZ(0)",
     height: "100px",
     width: "100%",
-    position: "absolute",
-    left: "15%",
+    
   };
   return (
     <>
