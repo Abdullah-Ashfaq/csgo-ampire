@@ -2,6 +2,13 @@
   font-family: "Proxima";
   src: url("../../fonts/FontsFree-Net-ProximaNova-Regular.ttf") format("woff2"); /* Modern Browsers */
 }
+.main-container {
+  background-color: #121c23;
+  position: relative;
+  top: 4.5rem;
+  border-radius: 0.75rem;
+  width: 100%;
+}
 .roulette_title {
   color: #fff;
   font-size: 1.25rem;
@@ -10,6 +17,11 @@
   font-weight: 700;
   line-height: 2.1875rem; /* 175% */
   text-transform: uppercase;
+}
+.roulette_title_flex {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 5rem;
 }
 
 .imageMaxWidth {

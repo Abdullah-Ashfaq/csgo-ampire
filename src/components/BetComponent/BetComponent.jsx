@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 import CountdownTimer from "./Time";
+import 'react-toastify/dist/ReactToastify.css';
+
+import ResetSound from "../../assets/reset_sound.wav"
 const rows = Array.from({ length: 10 }, (_, index) => ({
   id: index + 1,
   name: `FrenRik ${index + 1}`,
@@ -26,13 +30,41 @@ const BetComponent = () => {
   const [speed, setSpeed] = useState(initialSpeed);
   const [isAnimating, setIsAnimating] = useState(false);
   const [colorSequence, setColorSequence] = useState([]);
-  const [seconds, setSeconds] = useState(5);
   const [yellowCount, setYellowCount] = useState(0);
   const [blackCount, setBlackCount] = useState(0);
   const [jackpotCount, setJackpotCount] = useState(0);
+  const [playResetSound , setPlayResetSound] = useState(false)
+  const [soundOnOff , setSoundOnOff] = useState("Off")
+
+  const playSound = () => {
+    // Your sound playing logic goes here
+    if (playResetSound){
+      const audio = new Audio(ResetSound);
+      audio.play();
+    }
+   
+  };
+
+  const handleSoundOnOffClick = () =>{
+    setPlayResetSound(!playResetSound)
+    let soundCheck
+    if (!playResetSound ){
+      soundCheck = "On"
+      setSoundOnOff("On")
+    } 
+    else{
+      soundCheck = "Off"
+      setSoundOnOff("Off")
+    }
+
+    toast.info(`Sound has been turned ${soundCheck}`)
+  }
+  //start animation after 5 seconds
   useEffect(() => {
-    startAnimation(5000); // Start animation after 5 seconds
+    startAnimation(5000);
   }, []);
+
+  //Updating the position of the image to show the moving animation
   useEffect(() => {
     if (isAnimating) {
       const interval = setInterval(() => {
@@ -45,6 +77,8 @@ const BetComponent = () => {
       return () => clearInterval(interval);
     }
   }, [isAnimating, speed, stopAfter]);
+
+  //Resetting
   useEffect(() => {
     let resetTimer;
     if (speed === 0) {
@@ -65,6 +99,7 @@ const BetComponent = () => {
         setPosition(75 * negativeRandomNumber);
         setSpeed(initialSpeed);
         setIsAnimating(false);
+        playSound()
       }, resetAfterAnimationStopped);
     }
     return () => clearTimeout(resetTimer);
@@ -75,15 +110,7 @@ const BetComponent = () => {
     position,
     colorSequence,
   ]);
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (seconds > 0) {
-        setSeconds((prevSeconds) => prevSeconds - 1);
-      }
-    }, 1000);
-    // Clean up the interval on unmount or when seconds reach 0
-    return () => clearInterval(timer);
-  }, [seconds]);
+
   const getImageForItem = (item) => {
     return item === 1 ? "/yellow-coin.png" : "/black-coin.png";
   };
@@ -170,22 +197,15 @@ const BetComponent = () => {
     width: "100%",
     position: "absolute",
     left: "15%",
-    
   };
   return (
     <>
-      <div style={{ backgroundColor: "#121C23", position: "relative", top: "4.5rem", borderRadius: "0.75rem", width: "100%"}}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            padding: "1rem 5rem ",
-          }}
-        >
+      <div className="main-container">
+        <div className="roulette_title_flex">
           <div className="roulette_title">Roulette</div>
           <div className="sound_flex">
-            <img src="/Volume_Max.png" alt="volume"></img>
-            <div className="sound_on_text">Sound On</div>
+            <img src="/Volume_Max.png" alt="volume" onClick={handleSoundOnOffClick}></img>
+            <div className="sound_on_text">Sound  is {soundOnOff}</div>
           </div>
         </div>
         <div className="containerStyle">
@@ -264,144 +284,144 @@ const BetComponent = () => {
                 </div>
               </div>
             </div>
-           
           </div>
         </div>
         <div className="place_bet_container">
-              <div className="place_bet_table_title_flex">
-                <div className="place_bet_border place_bet_item">
-                  <div className="place_bet_left_flex">
-                    <img
-                      src="/yellow-coin.png"
-                      className="imageSize_20"
-                      alt="yellow.png"
-                    ></img>
-                    <div className="place_bet_text"> Place Bet</div>
-                  </div>
-                  <div className="place_bet_win_text">Win 2X</div>
-                </div>
-                <div className="place_bet_table">
-                  <div className="place_bet_table_top_title">
-                    <div className="table_text"> 17 Bets Total</div>
-                    <div className="place_bet_table_inner_flex_right_items">
-                      <img
-                        src="/assets.png"
-                        className="imageSize15"
-                        alt="assets.png"
-                      ></img>
-                      <div className="table_text">139.10</div>
-                    </div>
-                  </div>
-                  <div>
-                    {rows.map((row) => (
-                      <div
-                        key={row.id}
-                        className="place_bet_table_items_outer_flex"
-                      >
-                        <div className="place_bet_table_items_inner_flex">
-                          <img
-                            src="/Ellipse 1.png"
-                            alt="Ellipse.png"
-                            className="imageSize15"
-                          ></img>
-                          <div className="table_text">{row.name}</div>
-                        </div>
-                        <div className="table_text">{row.value}</div>
-                      </div>
-                    ))}
-                  </div>
+          <div className="place_bet_table_title_flex">
+            <div className="place_bet_border place_bet_item">
+              <div className="place_bet_left_flex">
+                <img
+                  src="/yellow-coin.png"
+                  className="imageSize_20"
+                  alt="yellow.png"
+                ></img>
+                <div className="place_bet_text"> Place Bet</div>
+              </div>
+              <div className="place_bet_win_text">Win 2X</div>
+            </div>
+            <div className="place_bet_table">
+              <div className="place_bet_table_top_title">
+                <div className="table_text"> 17 Bets Total</div>
+                <div className="place_bet_table_inner_flex_right_items">
+                  <img
+                    src="/assets.png"
+                    className="imageSize15"
+                    alt="assets.png"
+                  ></img>
+                  <div className="table_text">139.10</div>
                 </div>
               </div>
-              <div className="place_bet_table_title_flex">
-                <div className="place_bet_border place_bet_item">
-                  <div className="place_bet_left_flex">
-                    <img
-                      src="/Coin 4.png"
-                      className="imageSize_20"
-                      alt="yellow.png"
-                    ></img>
-                    <div className="place_bet_text"> Place Bet</div>
-                  </div>
-                  <div className="place_bet_win_text">Win 12X</div>
-                </div>
-                <div className="place_bet_table">
-                  <div className="place_bet_table_top_title">
-                    <div className="table_text"> 17 Bets Total</div>
-                    <div className="place_bet_table_inner_flex_right_items">
+              <div>
+                {rows.map((row) => (
+                  <div
+                    key={row.id}
+                    className="place_bet_table_items_outer_flex"
+                  >
+                    <div className="place_bet_table_items_inner_flex">
                       <img
-                        src="/assets.png"
+                        src="/Ellipse 1.png"
+                        alt="Ellipse.png"
                         className="imageSize15"
-                        alt="assets.png"
                       ></img>
-                      <div className="table_text">139.10</div>
+                      <div className="table_text">{row.name}</div>
                     </div>
+                    <div className="table_text">{row.value}</div>
                   </div>
-                  <div>
-                    {rows.map((row) => (
-                      <div
-                        key={row.id}
-                        className="place_bet_table_items_outer_flex"
-                      >
-                        <div className="place_bet_table_items_inner_flex">
-                          <img
-                            src="/Ellipse 1.png"
-                            alt="Ellipse.png"
-                            className="imageSize15"
-                          ></img>
-                          <div className="table_text">{row.name}</div>
-                        </div>
-                        <div className="table_text">{row.value}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="place_bet_table_title_flex">
-                <div className="place_bet_border place_bet_item">
-                  <div className="place_bet_left_flex">
-                    <img
-                      src="/black-coin.png"
-                      className="imageSize_20"
-                      alt="yellow.png"
-                    ></img>
-                    <div className="place_bet_text"> Place Bet</div>
-                  </div>
-                  <div className="place_bet_win_text">Win 2X</div>
-                </div>
-                <div className="place_bet_table">
-                  <div className="place_bet_table_top_title">
-                    <div className="table_text"> 17 Bets Total</div>
-                    <div className="place_bet_table_inner_flex_right_items">
-                      <img
-                        src="/assets.png"
-                        className="imageSize15"
-                        alt="assets.png"
-                      ></img>
-                      <div className="table_text">139.10</div>
-                    </div>
-                  </div>
-                  <div>
-                    {rows.map((row) => (
-                      <div
-                        key={row.id}
-                        className="place_bet_table_items_outer_flex"
-                      >
-                        <div className="place_bet_table_items_inner_flex">
-                          <img
-                            src="/Ellipse 1.png"
-                            alt="Ellipse.png"
-                            className="imageSize15"
-                          ></img>
-                          <div className="table_text">{row.name}</div>
-                        </div>
-                        <div className="table_text">{row.value}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
+          </div>
+          <div className="place_bet_table_title_flex">
+            <div className="place_bet_border place_bet_item">
+              <div className="place_bet_left_flex">
+                <img
+                  src="/Coin 4.png"
+                  className="imageSize_20"
+                  alt="yellow.png"
+                ></img>
+                <div className="place_bet_text"> Place Bet</div>
+              </div>
+              <div className="place_bet_win_text">Win 12X</div>
+            </div>
+            <div className="place_bet_table">
+              <div className="place_bet_table_top_title">
+                <div className="table_text"> 17 Bets Total</div>
+                <div className="place_bet_table_inner_flex_right_items">
+                  <img
+                    src="/assets.png"
+                    className="imageSize15"
+                    alt="assets.png"
+                  ></img>
+                  <div className="table_text">139.10</div>
+                </div>
+              </div>
+              <div>
+                {rows.map((row) => (
+                  <div
+                    key={row.id}
+                    className="place_bet_table_items_outer_flex"
+                  >
+                    <div className="place_bet_table_items_inner_flex">
+                      <img
+                        src="/Ellipse 1.png"
+                        alt="Ellipse.png"
+                        className="imageSize15"
+                      ></img>
+                      <div className="table_text">{row.name}</div>
+                    </div>
+                    <div className="table_text">{row.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="place_bet_table_title_flex">
+            <div className="place_bet_border place_bet_item">
+              <div className="place_bet_left_flex">
+                <img
+                  src="/black-coin.png"
+                  className="imageSize_20"
+                  alt="yellow.png"
+                ></img>
+                <div className="place_bet_text"> Place Bet</div>
+              </div>
+              <div className="place_bet_win_text">Win 2X</div>
+            </div>
+            <div className="place_bet_table">
+              <div className="place_bet_table_top_title">
+                <div className="table_text"> 17 Bets Total</div>
+                <div className="place_bet_table_inner_flex_right_items">
+                  <img
+                    src="/assets.png"
+                    className="imageSize15"
+                    alt="assets.png"
+                  ></img>
+                  <div className="table_text">139.10</div>
+                </div>
+              </div>
+              <div>
+                {rows.map((row) => (
+                  <div
+                    key={row.id}
+                    className="place_bet_table_items_outer_flex"
+                  >
+                    <div className="place_bet_table_items_inner_flex">
+                      <img
+                        src="/Ellipse 1.png"
+                        alt="Ellipse.png"
+                        className="imageSize15"
+                      ></img>
+                      <div className="table_text">{row.name}</div>
+                    </div>
+                    <div className="table_text">{row.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

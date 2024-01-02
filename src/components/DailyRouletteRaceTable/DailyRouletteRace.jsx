@@ -10,6 +10,7 @@ const DailyRouletteRace = () => {
       </div>
 
       <table className={style.table} >
+      <tbody>
         <tr className={style.tableHeader}>
           <th style={{paddingLeft: "1rem"}}>Game</th>
           <th>Time</th>
@@ -17,6 +18,7 @@ const DailyRouletteRace = () => {
           <th>MultiPlier</th>
           <th>Payout</th>
         </tr>
+  
   
         <tr className={style.tableBody}>
           <td style={{paddingLeft: "1rem"}}>Arsenal (Alicia) - Chelsea (July)</td>
@@ -46,6 +48,7 @@ const DailyRouletteRace = () => {
           <td>1,01</td>
           <td style={{color: "#3BB369"}}>0.47378200</td>
         </tr>
+        </tbody>
       </table>
     </div>
   )
