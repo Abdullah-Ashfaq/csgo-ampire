@@ -3,11 +3,82 @@
   src: url("../../fonts/FontsFree-Net-ProximaNova-Regular.ttf") format("woff2"); /* Modern Browsers */
 }
 
-.main {
-  width: 100%;
+.rouletteTable {
+  width: 97%;
   height: 21.25rem;
   flex-shrink: 0;
   border-radius: 0.75rem;
   border: 1px solid #18262f;
   background: #121c23;
+  padding: 1.75rem 1.5rem 1.62rem 1.5rem;
+  position: relative;
+  top: 8rem;
+  margin-bottom: 8rem;
+  /* color: #fff; */
+}
+.headingBar {
+    display: flex;
+    justify-content: space-between;
+}
+.headingBar .heading {
+color: #FFF;
+font-family: "Proxima";
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 700;
+line-height: 2.1875rem; /* 175% */
+}
+.headingBar .timeHeading {
+color: #AAB5C6;
+text-align: right;
+font-family: "Proxima";
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 600;
+line-height: 1.3125rem; /* 150% */
+}
+.rouletteTable .table {
+    width: 100%;
+    margin-top: 2rem;
+}
+.tableHeader {
+}
+.tableHeader th {
+    text-align: left;
+    color: #3D4D65;
+    font-family: "Proxima";
+font-size: 0.75rem;
+font-style: normal;
+font-weight: 600;
+line-height: 1.3125rem; /* 175% */
+}
+.tableBody {
+   
+}
+.tableBody:nth-child(even) {
+    height: 2.5rem;
+    border-radius: 0.25rem;
+background-color: #16222B;
+padding: 1rem;
+
+} 
+.tableBody:nth-child(odd) {
+    height: 2.5rem;
+    border-radius: 0.25rem;
+
+} 
+.tableBody td {
+    color: #BFD1EA;
+    font-family: "Proxima";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.3125rem; /* 175% */
+    border: none;
+}
+.payoutGreen {
+    color: #3BB369;
+}
+.payoutRed {
+    color: #CD2A2A;;
 }

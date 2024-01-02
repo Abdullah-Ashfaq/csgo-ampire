@@ -12,6 +12,7 @@
   color: #fff;
   padding: 1.87rem 0;
   position: fixed;
+  top: 4.5rem;
   left: 0;
 }
 .first {
@@ -41,7 +42,7 @@
 .mines {
   cursor: pointer;
   display: flex;
-  width: 15.25rem;
+  /* width: 15.25rem; */
   padding: 0.75rem 2.5rem;
   align-items: center;
   margin-top: 2.0625rem;

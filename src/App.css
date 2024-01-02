@@ -1,5 +1,5 @@
 .layout {
-    width: 83%;
+    width: 80%;
     height: 100%;
     /* margin: 0 auto; */
     margin-left: 18rem;
@@ -8,6 +8,6 @@
 }
 @media(max-width: 1600px) {
     .layout {
-        width: 79%;
+        width: 75%;
     }
 }

@@ -12,6 +12,9 @@
   border-bottom: 1px solid #18262f;
   background-color: #121c23;
   flex-shrink: 0;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 }
 .flipper {
     padding-left: 2.5rem;

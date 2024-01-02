@@ -1,0 +1,272 @@
+@font-face {
+    font-family: "Proxima";
+    src: url("../../fonts/FontsFree-Net-ProximaNova-Regular.ttf") format("woff2"); /* Modern Browsers */
+  }
+.roulette_title {
+    color: #fff;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-family: "Proxima";
+    font-weight: 700;
+    line-height: 2.1875rem; /* 175% */
+    text-transform: uppercase;
+  }
+  .sound_on_text {
+    color: #576a78;
+    font-size: 0.75rem;
+    font-family: "Proxima";
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  .containerStyle {
+    /* position: relative; */
+    height: 300px;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .sequenceContainerStyle {
+    position: relative;
+    top: 45%;
+  }
+  .imageSize_30 {
+    width: 30px;
+    height: 30px;
+  }
+  .imageSize_20 {
+    width: 20px;
+    height: 20px;
+  }
+  .imageSize15 {
+    width: 15px;
+    height: 15px;
+  }
+  .markerStyle {
+    left: 50%;
+    height: 100px;
+    width: 5px;
+    background: #d0021b;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 10;
+  }
+  .overlay {
+    background: rgba(26, 28, 36, 0.75);
+    max-width: 1100px;
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    left: 15%;
+    z-index: 9;
+  }
+  .timer {
+    font-family: "Proxima";
+    color: white;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .timer_position {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .timer_position_outer {
+    left: 47%;
+    top: 14.5%;
+    position: absolute;
+    z-index: 10;
+  }
+  .timer_seconds {
+    font-family: "Proxima";
+    color: white;
+    font-size: 1.4rem;
+  }
+  .text_previous {
+    font-family: "Proxima";
+    color: #576a78;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-bottom: 1.3rem;
+  }
+  .text_enter_amount {
+    font-family: "Proxima";
+    color: #454e61;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .previous_rolls_flex {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+  }
+  .history_sequence {
+    display: flex;
+    gap: 0.2rem;
+    max-width: 300px;
+    overflow: hidden;
+  }
+  .image_animation {
+    opacity: 0; /* Initially set opacity to 0 */
+    transition: opacity 0.3s ease; /* Apply a transition to opacity */
+  }
+  .image_animation.fade-in {
+    opacity: 1; /* Change opacity to 1 to create the fade-in effect */
+  }
+  .last_100_outer_flex {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+  }
+  .last_100_flex {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+  }
+  .enter_amount_outer_container {
+    display: flex;
+    justify-content: center;
+  }
+  .enter_amount_inner_container {
+    border-radius: 1.25rem;
+    border: 1px solid #222c39;
+    background: #0e131b;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .options_background {
+    width: 0.1rem;
+    height: 2.25rem;
+    background: #222c39;
+  }
+  .options_inner_flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.4rem;
+  }
+  .options_border {
+    border-radius: 20%;
+    background: #222c39;
+    padding: 0.0125rem 0.7rem;
+  }
+  .text_options {
+    font-family: "Proxima";
+    color: #8694b6;
+    text-align: center;
+    font-size: 0.625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1rem; /* 160% */
+    text-transform: uppercase;
+  }
+  .counter_text {
+    font-family: "Proxima";
+    color: #d3e0e9;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+  .place_bet_container {
+    display: flex;
+    justify-content: center;
+    gap: 15rem;
+    margin-top: 3rem;
+    background-color: #121C23;
+    padding-bottom: 2rem;
+    border-radius: 0.75rem;
+  }
+  .place_bet_border {
+    border-radius: 1.5rem;
+    border: 1px solid #243742;
+    background: #12181d;
+    
+  }
+  .place_bet_item {
+    display: flex;
+    padding: 0.75rem 1rem;
+    justify-content: space-between;
+    gap: 4rem;
+    align-items: center;
+    align-self: stretch;
+  }
+  .place_bet_left_flex {
+    display: flex;
+    gap: 0.4rem;
+  }
+  .place_bet_text {
+    font-family: "Proxima";
+    color: #d3e0e9;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+  .place_bet_win_text {
+    font-family: "Proxima";
+    color: #5b6c79;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+  .place_bet_table {
+    border-radius: 1rem;
+    border: 2px solid #243742;
+    background: #1c2932;
+    padding: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .place_bet_table_top_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #293c48;
+    padding: 0.5rem 0rem;
+  }
+  .place_bet_table_items_outer_flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  .place_bet_table_items_inner_flex {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .place_bet_table_inner_flex_right_items {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .place_bet_table_title_flex {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .table_text {
+    font-family: "Proxima";
+    color: #5b6c79;
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
