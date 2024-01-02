@@ -166,14 +166,11 @@ const BetComponent = () => {
     backgroundPosition: `${position}px center`,
     transition: "background-position 0.3s ease", // Adding a smooth transition
     transform: "translateZ(0)",
-    maxWidth: "1100px",
     height: "100px",
     width: "100%",
     position: "absolute",
     left: "15%",
-    "@media (max-width:1400px)": {
-        maxWidth: "800px",
-      }
+    
   };
   return (
     <>
@@ -186,13 +183,13 @@ const BetComponent = () => {
           }}
         >
           <div className="roulette_title">Roulette</div>
-          <div style={{ display: "flex", gap: "1rem" }}>
+          <div className="sound_flex">
             <img src="/Volume_Max.png" alt="volume"></img>
             <div className="sound_on_text">Sound On</div>
           </div>
         </div>
         <div className="containerStyle">
-          <div style={imageStyle}></div>
+          <div style={imageStyle} className="imageMaxWidth"></div>
           {!isAnimating ? <div className="overlay" /> : <></>}
           {isAnimating ? (
             <div className="markerStyle"></div>
