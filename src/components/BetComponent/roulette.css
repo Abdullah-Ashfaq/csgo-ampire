@@ -325,6 +325,9 @@
   .overlay {
     max-width: 800px;
   }
+  .place_bet_table_items_outer_flex {
+    gap: 0rem;
+  }
 }
 
 @media (min-width: 1400px) and (max-width: 1600px) {
@@ -481,6 +484,9 @@
   .previous_rolls_flex {
     gap: 0.4rem;
   }
+  .place_bet_table_items_outer_flex {
+    gap: 0rem;
+  }
 }
 
 @media screen and (min-width: 1000px) and (max-width: 1030px) {
@@ -534,10 +540,12 @@
     gap: 0.1rem;
   }
   .imageMaxWidth {
-    max-width: 550px;
+    max-width: 650px;
+    left: 10%;
   }
   .overlay {
-    max-width: 550px;
+    max-width: 650px;
+    left: 10%;
   }
   .options_inner_flex {
     gap: 0.2rem;
@@ -551,5 +559,8 @@
   }
   .previous_rolls_flex {
     gap: 0.4rem;
+  }
+  .place_bet_container_mobile_view {
+    padding: 12rem 0 0 6rem;
   }
 }
