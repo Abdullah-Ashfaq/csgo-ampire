@@ -6,7 +6,7 @@ import DailyRouletteRace from "./components/DailyRouletteRaceTable/DailyRoulette
 import BetComponent from "./components/BetComponent/BetComponent";
 
 const App = () => {
-  const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+  const [isSideBarOpen, setIsSideBarOpen] = useState(true);
 
   const toggleSideBar = () => {
     setIsSideBarOpen(!isSideBarOpen);
@@ -15,7 +15,11 @@ const App = () => {
   useEffect(() => {
     const handleResize = () => {
       // Set sidebar state based on viewport width
-      setIsSideBarOpen(window.innerWidth >= 768); // Adjust the width as needed
+      if (window.innerWidth >= 768) {
+        setIsSideBarOpen(true);
+      } else {
+        setIsSideBarOpen(false);
+      }
     };
 
     handleResize();

@@ -109,3 +109,9 @@
     font-size: 0.8rem;
   }
 }
+
+@media screen and (min-width: 768px) and (max-width: 1300px) {
+  .rouletteTable {
+    width: 94.5%;
+  }
+}
