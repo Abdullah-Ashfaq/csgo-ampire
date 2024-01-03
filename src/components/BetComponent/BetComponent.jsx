@@ -9,6 +9,7 @@ const rows = Array.from({ length: 10 }, (_, index) => ({
   name: `FrenRik ${index + 1}`,
   value: (Math.random() * 200).toFixed(2),
 }));
+
 const options = [
   "Clear",
   "+0.01",
@@ -37,6 +38,17 @@ const BetComponent = () => {
   const [playResetSound , setPlayResetSound] = useState(false)
   const [soundOnOff , setSoundOnOff] = useState("Off")
 
+  const [restartAnimation, setRestartAnimation] = useState(true);
+
+  const temprows = Array.from({ length: 10 }, (_, index) => ({
+    id: index + 1,
+    name: `FrenRik ${index + 1}`,
+    value: (Math.random() * 200).toFixed(2),
+  }));
+  const [rows, setRows] = useState(temprows);
+
+  
+
   const playSound = () => {
     // Your sound playing logic goes here
     if (playResetSound){
@@ -44,6 +56,15 @@ const BetComponent = () => {
       audio.play();
     }
    
+  };
+
+  const generateRandomRows = () => {
+    const newRows = Array.from({ length: 10 }, (_, index) => ({
+      id: index + 1,
+      name: `FrenRik ${index + 1}`,
+      value: (Math.random() * 200).toFixed(2),
+    }));
+    return newRows;
   };
 
   const handleSoundOnOffClick = () =>{
@@ -95,11 +116,15 @@ const BetComponent = () => {
         } else {
           setJackpotCount((prevCount) => prevCount + 1);
         }
+        const newRows = generateRandomRows();
+        setRows(newRows); 
+
         const newColorSequence = [...colorSequence, color === "yellow" ? 1 : 0];
         setColorSequence(newColorSequence);
         setPosition(75 * negativeRandomNumber);
         setSpeed(initialSpeed);
         setIsAnimating(false);
+         setRestartAnimation((prev) => !prev);
         playSound()
       }, resetAfterAnimationStopped);
     }
@@ -110,6 +135,7 @@ const BetComponent = () => {
     resetAfterAnimationStopped,
     position,
     colorSequence,
+    setRows,
   ]);
 
   const getImageForItem = (item) => {
@@ -315,10 +341,11 @@ const BetComponent = () => {
                 </div>
               </div>
               <div>
-                {rows.map((row) => (
+                {rows.map((row,index) => (
                   <div
                     key={row.id}
-                    className="place_bet_table_items_outer_flex"
+                    className={`place_bet_table_items_outer_flex ${restartAnimation ? 'fade-in' : ''}`}
+                    style={{ animationDelay: `${index * 0.2}s` }}
                   >
                     <div className="place_bet_table_items_inner_flex">
                       <img
@@ -359,10 +386,11 @@ const BetComponent = () => {
                 </div>
               </div>
               <div>
-                {rows.map((row) => (
+                  {rows.map((row,index) => (
                   <div
                     key={row.id}
-                    className="place_bet_table_items_outer_flex"
+                      className={`place_bet_table_items_outer_flex ${restartAnimation ? 'fade-in' : ''}`}
+                    style={{ animationDelay: `${index * 0.2}s` }}
                   >
                     <div className="place_bet_table_items_inner_flex">
                       <img
@@ -403,10 +431,11 @@ const BetComponent = () => {
                 </div>
               </div>
               <div>
-                {rows.map((row) => (
+                  {rows.map((row,index) => (
                   <div
                     key={row.id}
-                    className="place_bet_table_items_outer_flex"
+                      className={`place_bet_table_items_outer_flex ${restartAnimation ? 'fade-in' : ''}`}
+                    style={{ animationDelay: `${index * 0.2}s` }}
                   >
                     <div className="place_bet_table_items_inner_flex">
                       <img
