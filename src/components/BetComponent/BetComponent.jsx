@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 import CountdownTimer from "./Time";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
-import ResetSound from "../../assets/reset_sound.wav"
+import ResetSound from "../../assets/reset_sound.wav";
 const rows = Array.from({ length: 10 }, (_, index) => ({
   id: index + 1,
   name: `FrenRik ${index + 1}`,
@@ -27,7 +27,7 @@ const BetComponent = () => {
   const initialSpeed = 75; // Initial speed
   const stopAfter = 5000; // Time in milliseconds after which animation slows down
   const resetAfterAnimationStopped = 3000; // Time to wait before resetting (5 seconds)
-  
+
   const [position, setPosition] = useState(75);
   const [speed, setSpeed] = useState(initialSpeed);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -35,10 +35,10 @@ const BetComponent = () => {
   const [yellowCount, setYellowCount] = useState(0);
   const [blackCount, setBlackCount] = useState(0);
   const [jackpotCount, setJackpotCount] = useState(0);
-  const [playResetSound , setPlayResetSound] = useState(false)
-  const [soundOnOff , setSoundOnOff] = useState("Off")
+  const [playResetSound, setPlayResetSound] = useState(false);
+  const [soundOnOff, setSoundOnOff] = useState("Off");
 
-  const [restartAnimation, setRestartAnimation] = useState(true);
+  const [animateRows, setAnimateRows] = useState(true);
 
   const temprows = Array.from({ length: 10 }, (_, index) => ({
     id: index + 1,
@@ -47,15 +47,12 @@ const BetComponent = () => {
   }));
   const [rows, setRows] = useState(temprows);
 
-  
-
   const playSound = () => {
     // Your sound playing logic goes here
-    if (playResetSound){
+    if (playResetSound) {
       const audio = new Audio(ResetSound);
       audio.play();
     }
-   
   };
 
   const generateRandomRows = () => {
@@ -67,20 +64,19 @@ const BetComponent = () => {
     return newRows;
   };
 
-  const handleSoundOnOffClick = () =>{
-    setPlayResetSound(!playResetSound)
-    let soundCheck
-    if (!playResetSound ){
-      soundCheck = "On"
-      setSoundOnOff("On")
-    } 
-    else{
-      soundCheck = "Off"
-      setSoundOnOff("Off")
+  const handleSoundOnOffClick = () => {
+    setPlayResetSound(!playResetSound);
+    let soundCheck;
+    if (!playResetSound) {
+      soundCheck = "On";
+      setSoundOnOff("On");
+    } else {
+      soundCheck = "Off";
+      setSoundOnOff("Off");
     }
 
-    toast.info(`Sound has been turned ${soundCheck}`)
-  }
+    toast.info(`Sound has been turned ${soundCheck}`);
+  };
   //start animation after 5 seconds
   useEffect(() => {
     startAnimation(5000);
@@ -117,15 +113,21 @@ const BetComponent = () => {
           setJackpotCount((prevCount) => prevCount + 1);
         }
         const newRows = generateRandomRows();
-        setRows(newRows); 
 
+        setRows(newRows);
+
+        setAnimateRows(false);
+
+        // Wait a very short duration to enable the animation again
+        setTimeout(() => {
+          setAnimateRows(true);
+        }, 50); // Adjust this delay duration as needed
         const newColorSequence = [...colorSequence, color === "yellow" ? 1 : 0];
         setColorSequence(newColorSequence);
         setPosition(75 * negativeRandomNumber);
         setSpeed(initialSpeed);
         setIsAnimating(false);
-         setRestartAnimation((prev) => !prev);
-        playSound()
+        playSound();
       }, resetAfterAnimationStopped);
     }
     return () => clearTimeout(resetTimer);
@@ -135,7 +137,6 @@ const BetComponent = () => {
     resetAfterAnimationStopped,
     position,
     colorSequence,
-    setRows,
   ]);
 
   const getImageForItem = (item) => {
@@ -222,16 +223,20 @@ const BetComponent = () => {
     transform: "translateZ(0)",
     height: "100px",
     width: "100%",
-    
   };
+
   return (
     <>
       <div className="main-container desktop_view">
         <div className="roulette_title_flex">
           <div className="roulette_title">Roulette</div>
           <div className="sound_flex">
-            <img src="/Volume_Max.png" alt="volume" onClick={handleSoundOnOffClick}></img>
-            <div className="sound_on_text">Sound  is {soundOnOff}</div>
+            <img
+              src="/Volume_Max.png"
+              alt="volume"
+              onClick={handleSoundOnOffClick}
+            ></img>
+            <div className="sound_on_text">Sound is {soundOnOff}</div>
           </div>
         </div>
         <div className="containerStyle">
@@ -246,9 +251,7 @@ const BetComponent = () => {
           )}
           <div className="sequenceContainerStyle">
             <div className="previous_rolls_flex">
-              <div className="text_previous">
-                Previous Rolls
-              </div>
+              <div className="text_previous">Previous Rolls</div>
               <div className="history_sequence">
                 {colorSequence.slice(-maxItemCount).map((item, index) => {
                   return (
@@ -267,7 +270,6 @@ const BetComponent = () => {
               </div>
               <div className="last_100_outer_flex">
                 <div className="last_100_flex">
-                  
                   <img
                     src="/yellow-coin.png"
                     className="imageSize_20"
@@ -276,22 +278,20 @@ const BetComponent = () => {
                   <div className="counter_text">{yellowCount}</div>
                 </div>
                 <div className="last_100_flex">
-                 
                   <img
                     src="/black-coin.png"
                     className="imageSize_20"
                     alt="black.png"
                   />
-                   <div className="counter_text">{blackCount}</div>
+                  <div className="counter_text">{blackCount}</div>
                 </div>
                 <div className="last_100_flex">
-                 
                   <img
                     src="/Coin 4.png"
                     className="imageSize_20"
                     alt="coin 4.png"
                   />
-                   <div className="counter_text">{jackpotCount}</div>
+                  <div className="counter_text">{jackpotCount}</div>
                 </div>
               </div>
             </div>
@@ -341,10 +341,12 @@ const BetComponent = () => {
                 </div>
               </div>
               <div>
-                {rows.map((row,index) => (
+                {rows.map((row, index) => (
                   <div
                     key={row.id}
-                    className={`place_bet_table_items_outer_flex ${restartAnimation ? 'fade-in' : ''}`}
+                    className={`place_bet_table_items_outer_flex ${
+                      animateRows ? "fade-in" : "" // Apply animation class based on animateRows
+                    }`}
                     style={{ animationDelay: `${index * 0.2}s` }}
                   >
                     <div className="place_bet_table_items_inner_flex">
@@ -386,10 +388,12 @@ const BetComponent = () => {
                 </div>
               </div>
               <div>
-                  {rows.map((row,index) => (
+                {rows.map((row, index) => (
                   <div
                     key={row.id}
-                      className={`place_bet_table_items_outer_flex ${restartAnimation ? 'fade-in' : ''}`}
+                    className={`place_bet_table_items_outer_flex ${
+                      animateRows ? "fade-in" : "" // Apply animation class based on animateRows
+                    }`}
                     style={{ animationDelay: `${index * 0.2}s` }}
                   >
                     <div className="place_bet_table_items_inner_flex">
@@ -431,10 +435,12 @@ const BetComponent = () => {
                 </div>
               </div>
               <div>
-                  {rows.map((row,index) => (
+                {rows.map((row, index) => (
                   <div
                     key={row.id}
-                      className={`place_bet_table_items_outer_flex ${restartAnimation ? 'fade-in' : ''}`}
+                    className={`place_bet_table_items_outer_flex ${
+                      animateRows ? "fade-in" : "" // Apply animation class based on animateRows
+                    }`}
                     style={{ animationDelay: `${index * 0.2}s` }}
                   >
                     <div className="place_bet_table_items_inner_flex">
@@ -455,8 +461,7 @@ const BetComponent = () => {
       </div>
 
       <div className="mobile_view">
-
-      <div className="containerStyle">
+        <div className="containerStyle">
           <div style={imageStyle} className="imageMaxWidth"></div>
           {!isAnimating ? <div className="overlay" /> : <></>}
           {isAnimating ? (
@@ -466,80 +471,75 @@ const BetComponent = () => {
               <CountdownTimer></CountdownTimer>
             </div>
           )}
-         
         </div>
         <div className="sequenceContainerStyle">
-            <div className="previous_rolls_flex">
-              <div>
-                <p className="text_previous">Previous Rolls</p>
-              </div>
-              <div className="history_sequence">
-                {colorSequence.slice(-maxItemCount).map((item, index) => {
-                  return (
-                    <div key={index}>
-                      <img
-                        src={getImageForItem(item)}
-                        alt={item === 1 ? "yellow-coin" : "black-coin"}
-                        className="imageSize_30"
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-              <div>
-                <p className="text_previous">Last 100</p>
-              </div>
-              <div className="last_100_outer_flex">
-                <div className="last_100_flex">
-                  
-                  <img
-                    src="/yellow-coin.png"
-                    className="imageSize_20"
-                    alt="yellow.png"
-                  />
-                  <div className="counter_text">{yellowCount}</div>
-                </div>
-                <div className="last_100_flex">
-                 
-                  <img
-                    src="/black-coin.png"
-                    className="imageSize_20"
-                    alt="black.png"
-                  />
-                   <div className="counter_text">{blackCount}</div>
-                </div>
-                <div className="last_100_flex">
-                 
-                  <img
-                    src="/Coin 4.png"
-                    className="imageSize_20"
-                    alt="coin 4.png"
-                  />
-                   <div className="counter_text">{jackpotCount}</div>
-                </div>
-              </div>
+          <div className="previous_rolls_flex">
+            <div>
+              <p className="text_previous">Previous Rolls</p>
             </div>
-            <div className="enter_amount_outer_container">
-              <div className="enter_amount_inner_container">
-                {" "}
-                <img src="/assets.png" alt="assets.png"></img>
-                <p className="text_enter_amount">Enter Amount</p>
-                <div className="options_background" />
-                <div className="options_inner_flex">
-                  {options.map((option, index) => (
-                    <div key={index}>
-                      <div className="options_border">
-                        {" "}
-                        <p className="text_options">{option}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+            <div className="history_sequence">
+              {colorSequence.slice(-maxItemCount).map((item, index) => {
+                return (
+                  <div key={index}>
+                    <img
+                      src={getImageForItem(item)}
+                      alt={item === 1 ? "yellow-coin" : "black-coin"}
+                      className="imageSize_30"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            <div>
+              <p className="text_previous">Last 100</p>
+            </div>
+            <div className="last_100_outer_flex">
+              <div className="last_100_flex">
+                <img
+                  src="/yellow-coin.png"
+                  className="imageSize_20"
+                  alt="yellow.png"
+                />
+                <div className="counter_text">{yellowCount}</div>
+              </div>
+              <div className="last_100_flex">
+                <img
+                  src="/black-coin.png"
+                  className="imageSize_20"
+                  alt="black.png"
+                />
+                <div className="counter_text">{blackCount}</div>
+              </div>
+              <div className="last_100_flex">
+                <img
+                  src="/Coin 4.png"
+                  className="imageSize_20"
+                  alt="coin 4.png"
+                />
+                <div className="counter_text">{jackpotCount}</div>
               </div>
             </div>
           </div>
-          <div className="place_bet_container_mobile_view">
-            
+          <div className="enter_amount_outer_container">
+            <div className="enter_amount_inner_container">
+              {" "}
+              <img src="/assets.png" alt="assets.png"></img>
+              <p className="text_enter_amount">Enter Amount</p>
+              <div className="options_background" />
+              <div className="options_inner_flex">
+                {options.map((option, index) => (
+                  <div key={index}>
+                    <div className="options_border">
+                      {" "}
+                      <p className="text_options">{option}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="place_bet_container_mobile_view">
           <div className="place_bet_table_title_flex">
             <div className="place_bet_border place_bet_item">
               <div className="place_bet_left_flex">
@@ -672,7 +672,7 @@ const BetComponent = () => {
               </div>
             </div>
           </div>
-          </div>
+        </div>
       </div>
       <ToastContainer />
     </>
