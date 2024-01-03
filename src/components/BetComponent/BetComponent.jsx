@@ -20,12 +20,13 @@ const options = [
   "X2",
   "Max",
 ];
+const maxItemCount = window.innerWidth < 768 ? 12 : 7;
 const BetComponent = () => {
   const imageUrl = "/coins.png"; // Replace with your image URL
   const initialSpeed = 75; // Initial speed
   const stopAfter = 5000; // Time in milliseconds after which animation slows down
   const resetAfterAnimationStopped = 3000; // Time to wait before resetting (5 seconds)
-  const maxItemCount = 7;
+  
   const [position, setPosition] = useState(75);
   const [speed, setSpeed] = useState(initialSpeed);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -199,7 +200,7 @@ const BetComponent = () => {
   };
   return (
     <>
-      <div className="main-container">
+      <div className="main-container desktop_view">
         <div className="roulette_title_flex">
           <div className="roulette_title">Roulette</div>
           <div className="sound_flex">
@@ -419,6 +420,224 @@ const BetComponent = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="mobile_view">
+
+      <div className="containerStyle">
+          <div style={imageStyle} className="imageMaxWidth"></div>
+          {!isAnimating ? <div className="overlay" /> : <></>}
+          {isAnimating ? (
+            <div className="markerStyle"></div>
+          ) : (
+            <div className="timer_position_outer">
+              <CountdownTimer></CountdownTimer>
+            </div>
+          )}
+         
+        </div>
+        <div className="sequenceContainerStyle">
+            <div className="previous_rolls_flex">
+              <div>
+                <p className="text_previous">Previous Rolls</p>
+              </div>
+              <div className="history_sequence">
+                {colorSequence.slice(-maxItemCount).map((item, index) => {
+                  return (
+                    <div key={index}>
+                      <img
+                        src={getImageForItem(item)}
+                        alt={item === 1 ? "yellow-coin" : "black-coin"}
+                        className="imageSize_30"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+              <div>
+                <p className="text_previous">Last 100</p>
+              </div>
+              <div className="last_100_outer_flex">
+                <div className="last_100_flex">
+                  <div className="counter_text">{yellowCount}</div>
+                  <img
+                    src="/yellow-coin.png"
+                    className="imageSize_20"
+                    alt="yellow.png"
+                  />
+                </div>
+                <div className="last_100_flex">
+                  <div className="counter_text">{blackCount}</div>
+                  <img
+                    src="/black-coin.png"
+                    className="imageSize_20"
+                    alt="black.png"
+                  />
+                </div>
+                <div className="last_100_flex">
+                  <div className="counter_text">{jackpotCount}</div>
+                  <img
+                    src="/Coin 4.png"
+                    className="imageSize_20"
+                    alt="coin 4.png"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="enter_amount_outer_container">
+              <div className="enter_amount_inner_container">
+                {" "}
+                <img src="/assets.png" alt="assets.png"></img>
+                <p className="text_enter_amount">Enter Amount</p>
+                <div className="options_background" />
+                <div className="options_inner_flex">
+                  {options.map((option, index) => (
+                    <div key={index}>
+                      <div className="options_border">
+                        {" "}
+                        <p className="text_options">{option}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="place_bet_container_mobile_view">
+            
+          <div className="place_bet_table_title_flex">
+            <div className="place_bet_border place_bet_item">
+              <div className="place_bet_left_flex">
+                <img
+                  src="/yellow-coin.png"
+                  className="imageSize_20"
+                  alt="yellow.png"
+                ></img>
+                <div className="place_bet_text"> Place Bet</div>
+              </div>
+              <div className="place_bet_win_text">Win 2X</div>
+            </div>
+            <div className="place_bet_table">
+              <div className="place_bet_table_top_title">
+                <div className="table_text"> 17 Bets Total</div>
+                <div className="place_bet_table_inner_flex_right_items">
+                  <img
+                    src="/assets.png"
+                    className="imageSize15"
+                    alt="assets.png"
+                  ></img>
+                  <div className="table_text">139.10</div>
+                </div>
+              </div>
+              <div>
+                {rows.map((row) => (
+                  <div
+                    key={row.id}
+                    className="place_bet_table_items_outer_flex"
+                  >
+                    <div className="place_bet_table_items_inner_flex">
+                      <img
+                        src="/Ellipse 1.png"
+                        alt="Ellipse.png"
+                        className="imageSize15"
+                      ></img>
+                      <div className="table_text">{row.name}</div>
+                    </div>
+                    <div className="table_text">{row.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="place_bet_table_title_flex">
+            <div className="place_bet_border place_bet_item">
+              <div className="place_bet_left_flex">
+                <img
+                  src="/Coin 4.png"
+                  className="imageSize_20"
+                  alt="yellow.png"
+                ></img>
+                <div className="place_bet_text"> Place Bet</div>
+              </div>
+              <div className="place_bet_win_text">Win 12X</div>
+            </div>
+            <div className="place_bet_table">
+              <div className="place_bet_table_top_title">
+                <div className="table_text"> 17 Bets Total</div>
+                <div className="place_bet_table_inner_flex_right_items">
+                  <img
+                    src="/assets.png"
+                    className="imageSize15"
+                    alt="assets.png"
+                  ></img>
+                  <div className="table_text">139.10</div>
+                </div>
+              </div>
+              <div>
+                {rows.map((row) => (
+                  <div
+                    key={row.id}
+                    className="place_bet_table_items_outer_flex"
+                  >
+                    <div className="place_bet_table_items_inner_flex">
+                      <img
+                        src="/Ellipse 1.png"
+                        alt="Ellipse.png"
+                        className="imageSize15"
+                      ></img>
+                      <div className="table_text">{row.name}</div>
+                    </div>
+                    <div className="table_text">{row.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="place_bet_table_title_flex">
+            <div className="place_bet_border place_bet_item">
+              <div className="place_bet_left_flex">
+                <img
+                  src="/black-coin.png"
+                  className="imageSize_20"
+                  alt="yellow.png"
+                ></img>
+                <div className="place_bet_text"> Place Bet</div>
+              </div>
+              <div className="place_bet_win_text">Win 2X</div>
+            </div>
+            <div className="place_bet_table">
+              <div className="place_bet_table_top_title">
+                <div className="table_text"> 17 Bets Total</div>
+                <div className="place_bet_table_inner_flex_right_items">
+                  <img
+                    src="/assets.png"
+                    className="imageSize15"
+                    alt="assets.png"
+                  ></img>
+                  <div className="table_text">139.10</div>
+                </div>
+              </div>
+              <div>
+                {rows.map((row) => (
+                  <div
+                    key={row.id}
+                    className="place_bet_table_items_outer_flex"
+                  >
+                    <div className="place_bet_table_items_inner_flex">
+                      <img
+                        src="/Ellipse 1.png"
+                        alt="Ellipse.png"
+                        className="imageSize15"
+                      ></img>
+                      <div className="table_text">{row.name}</div>
+                    </div>
+                    <div className="table_text">{row.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          </div>
       </div>
       <ToastContainer />
     </>

@@ -75,12 +75,7 @@ const SideNav = () => {
 
       {/* social icons */}
 
-      <div className={style.socialIcons}>
-        <img className={style.icons} src={twitter} alt="twitter icon" />
-        <img className={style.icons} src={discord} alt="discord icon" />
-        <img className={style.icons} src={ME} alt="ME icon" />
-
-      </div>
+      
 
     </div>
   )

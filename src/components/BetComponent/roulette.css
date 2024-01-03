@@ -166,7 +166,6 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  
 }
 .enter_amount_inner_container {
   border-radius: 1.25rem;
@@ -221,6 +220,14 @@
   background-color: #121c23;
   padding-bottom: 2rem;
   border-radius: 0.75rem;
+}
+.place_bet_container_mobile_view {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 8rem 0 0 3rem;
+  width: 100%;
 }
 .place_bet_border {
   border-radius: 1.5rem;
@@ -302,21 +309,21 @@
   font-weight: 600;
   line-height: normal;
 }
-@media(max-width: 1400px) {
-    .enter_amount_inner_container {
-        width: 80%;
-        gap: 1rem;
-        justify-content: center;
-    }
-    .place_bet_container {
-        gap: 10rem;
-      }
-      .imageMaxWidth {
-        max-width: 800px;
-      }
-      .overlay {
-        max-width: 800px;
-      }
+@media (max-width: 1400px) {
+  .enter_amount_inner_container {
+    width: 80%;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .place_bet_container {
+    gap: 10rem;
+  }
+  .imageMaxWidth {
+    max-width: 800px;
+  }
+  .overlay {
+    max-width: 800px;
+  }
 }
 
 @media (min-width: 1400px) and (max-width: 1600px) {
@@ -334,35 +341,108 @@
     gap: 10rem;
   }
 }
-@media (min-width:1600px) {
-    .enter_amount_inner_container {
-        /* width: 70%; */
-        justify-content: center;
-      }
+@media (min-width: 1600px) {
+  .enter_amount_inner_container {
+    /* width: 70%; */
+    justify-content: center;
+  }
 }
-@media (min-width:1921px) {
-    .imageMaxWidth {
-        left: 20%;
-        max-width: 1300px;
-    }
-    .overlay {
-        left: 20%;
-        max-width: 1300px;
-    }
-    .text_previous {
-        font-size: 1.7rem;
-        
-    }
-    .imageSize_30 {
-        width: 35px;
-        height: 35px;
-    }
-    .counter_text {
-        font-size: 1.5rem;
-    }
-    .imageSize_20 {
-        width: 28px;
-        height: 28px;
-    }
+@media (min-width: 1921px) {
+  .imageMaxWidth {
+    left: 20%;
+    max-width: 1300px;
+  }
+  .overlay {
+    left: 20%;
+    max-width: 1300px;
+  }
+  .text_previous {
+    font-size: 1.7rem;
+  }
+  .imageSize_30 {
+    width: 35px;
+    height: 35px;
+  }
+  .counter_text {
+    font-size: 1.5rem;
+  }
+  .imageSize_20 {
+    width: 28px;
+    height: 28px;
+  }
+}
 
+@media screen and (max-width: 768px) {
+  .desktop_view {
+    display: none;
+  }
+  .mobile_view {
+    display: block;
+  }
+  .containerStyle {
+    margin-top: 5rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .imageMaxWidth {
+    left: 0;
+    max-width: 1000px;
+  }
+  .overlay {
+    left: 0;
+    max-width: 1000px;
+  }
+  .markerStyle {
+    left: 48%;
+  }
+  .timer_position_outer {
+    left: 38%;
+    top: 23%;
+  }
+  .sequenceContainerStyle {
+    position: absolute;
+    top: 40%;
+  }
+  .text_previous {
+    font-size: 0.6rem;
+    margin-bottom: 0;
+  }
+  .text_options {
+    font-size: 0.49rem;
+  }
+  .imageSize_30 {
+    width: 20px;
+    height: 20px;
+  }
+  .previous_rolls_flex {
+    display: flex;
+    gap: 0.2rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .enter_amount_inner_container {
+    width: 90%;
+    gap: 0.2rem;
+    justify-content: center;
+    padding: 0.5rem 0.5rem;
+    margin-top: 2rem;
+    flex-direction: column;
+  }
+  .options_inner_flex {
+    gap: 0.2rem;
+  }
+  .text_enter_amount {
+    font-size: 0.7rem;
+    margin-left: 0.5rem;
+  }
+  .options_background {
+    display: none;
+  }
+  .place_bet_table_title_flex {
+    gap: 1rem;
+  }
+  .place_bet_table {
+    margin-bottom: 1rem;
+  }
 }

@@ -1,8 +1,7 @@
 @font-face {
-    font-family: "Proxima";
-    src: url("../../fonts/FontsFree-Net-ProximaNova-Regular.ttf") format("woff2"); /* Modern Browsers */
-    
-  }
+  font-family: "Proxima";
+  src: url("../../fonts/FontsFree-Net-ProximaNova-Regular.ttf") format("woff2"); /* Modern Browsers */
+}
 .sideNav {
   width: 15.3125rem;
   height: 100vh;
@@ -14,6 +13,7 @@
   position: fixed;
   top: 4.5rem;
   left: 0;
+  z-index: 10001;
 }
 .first {
   display: inline-flex;
@@ -33,7 +33,7 @@
 }
 .first .row .text {
   color: #fff;
-  font-family: "Proxima" ;
+  font-family: "Proxima";
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 600;
@@ -61,7 +61,7 @@
 }
 .mines .text {
   color: #01fe86;
-  font-family: "Proxima" ;
+  font-family: "Proxima";
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 600;
@@ -86,4 +86,9 @@
   width: 1.16575rem;
   height: 0.94975rem;
   cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .socialIcons {
+    display: none;
+  }
 }
