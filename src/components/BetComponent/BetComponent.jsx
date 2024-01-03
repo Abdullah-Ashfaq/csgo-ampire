@@ -220,8 +220,8 @@ const BetComponent = () => {
           )}
           <div className="sequenceContainerStyle">
             <div className="previous_rolls_flex">
-              <div>
-                <p className="text_previous">Previous Rolls</p>
+              <div className="text_previous">
+                Previous Rolls
               </div>
               <div className="history_sequence">
                 {colorSequence.slice(-maxItemCount).map((item, index) => {
@@ -241,28 +241,31 @@ const BetComponent = () => {
               </div>
               <div className="last_100_outer_flex">
                 <div className="last_100_flex">
-                  <div className="counter_text">{yellowCount}</div>
+                  
                   <img
                     src="/yellow-coin.png"
                     className="imageSize_20"
                     alt="yellow.png"
                   />
+                  <div className="counter_text">{yellowCount}</div>
                 </div>
                 <div className="last_100_flex">
-                  <div className="counter_text">{blackCount}</div>
+                 
                   <img
                     src="/black-coin.png"
                     className="imageSize_20"
                     alt="black.png"
                   />
+                   <div className="counter_text">{blackCount}</div>
                 </div>
                 <div className="last_100_flex">
-                  <div className="counter_text">{jackpotCount}</div>
+                 
                   <img
                     src="/Coin 4.png"
                     className="imageSize_20"
                     alt="coin 4.png"
                   />
+                   <div className="counter_text">{jackpotCount}</div>
                 </div>
               </div>
             </div>
@@ -459,28 +462,31 @@ const BetComponent = () => {
               </div>
               <div className="last_100_outer_flex">
                 <div className="last_100_flex">
-                  <div className="counter_text">{yellowCount}</div>
+                  
                   <img
                     src="/yellow-coin.png"
                     className="imageSize_20"
                     alt="yellow.png"
                   />
+                  <div className="counter_text">{yellowCount}</div>
                 </div>
                 <div className="last_100_flex">
-                  <div className="counter_text">{blackCount}</div>
+                 
                   <img
                     src="/black-coin.png"
                     className="imageSize_20"
                     alt="black.png"
                   />
+                   <div className="counter_text">{blackCount}</div>
                 </div>
                 <div className="last_100_flex">
-                  <div className="counter_text">{jackpotCount}</div>
+                 
                   <img
                     src="/Coin 4.png"
                     className="imageSize_20"
                     alt="coin 4.png"
                   />
+                   <div className="counter_text">{jackpotCount}</div>
                 </div>
               </div>
             </div>

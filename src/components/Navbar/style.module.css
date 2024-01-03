@@ -20,14 +20,13 @@
   cursor: pointer;
 }
 .center {
-  display: inline-flex;
-  padding: 0.125rem;
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   border-radius: 0.75rem;
   border: 1px solid #222c39;
   background: #0e131b;
-  /* margin-left: 5rem; */
+  margin-left: 3rem;
 }
 
 .center .left {
@@ -62,7 +61,7 @@
   padding: 0.8125rem 0.75rem 0.81375rem 0.8125rem;
   justify-content: center;
   align-items: center;
-  border-radius: 0.625rem;
+  border-radius: 0.6rem;
   border: 1px solid #2cf078;
   background: linear-gradient(180deg, #12cb70 19.23%, #09ac85 121.81%), #00c74d;
 }

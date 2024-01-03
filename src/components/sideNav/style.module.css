@@ -72,14 +72,15 @@
   height: 0.0625rem;
   flex-shrink: 0;
   background: #222c39;
-  margin: 2.5rem auto 1.5rem auto;
+  margin: 1.5rem auto 1.5rem auto;
 }
 
 .socialIcons {
-  display: inline-flex;
+  display: flex;
   gap: 1rem;
+  justify-content: center;
   position: fixed;
-  bottom: 2rem;
+  bottom: 1rem;
   left: 4rem;
 }
 .socialIcons .icons {
