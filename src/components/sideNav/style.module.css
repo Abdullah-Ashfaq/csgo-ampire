@@ -79,9 +79,10 @@
   display: flex;
   gap: 1rem;
   justify-content: center;
-  position: fixed;
+  margin-top: 2rem;
+  /* position: relative;
   bottom: 1rem;
-  left: 4rem;
+  left: 4rem; */
 }
 .socialIcons .icons {
   width: 1.16575rem;
