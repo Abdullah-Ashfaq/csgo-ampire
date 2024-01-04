@@ -115,3 +115,12 @@
     width: 94.5%;
   }
 }
+
+@media (min-width: 1921px) {
+  .tableBody td {
+    font-size: 1rem;
+  }
+  .tableHeader th {
+    font-size: 1rem;
+  }
+}

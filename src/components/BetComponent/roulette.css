@@ -244,6 +244,7 @@
 .place_bet_left_flex {
   display: flex;
   gap: 0.4rem;
+  align-items: center;
 }
 .place_bet_text {
   font-family: "Proxima";
@@ -391,6 +392,9 @@
   .imageSize_20 {
     width: 28px;
     height: 28px;
+  }
+  .table_text {
+    font-size: 1.2rem;
   }
 }
 
