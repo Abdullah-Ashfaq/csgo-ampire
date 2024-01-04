@@ -17,6 +17,7 @@ import ME from '../../assets/ME.svg'
 const SideNav = () => {
   return (
     <div className={style.sideNav} >
+      <div>
       <div className={style.first}>
         <div className={style.row}>
           <img className={style.icon} src={coinflip} alt="coinflip icon" />
@@ -71,6 +72,7 @@ const SideNav = () => {
 
        
 
+      </div>
       </div>
 
       {/* social icons */}

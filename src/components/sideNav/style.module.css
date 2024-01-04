@@ -9,11 +9,15 @@
   border-right: 1px solid #18262f;
   background-color: #121c23;
   color: #fff;
-  padding: 1.87rem 0;
+  padding-top: 1.8rem;
   position: fixed;
   top: 4.5rem;
   left: 0;
   z-index: 10001;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ 
 }
 .first {
   display: inline-flex;
@@ -72,17 +76,15 @@
   height: 0.0625rem;
   flex-shrink: 0;
   background: #222c39;
-  margin: 1.5rem auto 1.5rem auto;
+  margin: 1rem auto 1rem auto;
 }
 
 .socialIcons {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  margin-top: 2rem;
-  /* position: relative;
-  bottom: 1rem;
-  left: 4rem; */
+  margin-bottom: 7rem;
+  
 }
 .socialIcons .icons {
   width: 1.16575rem;
@@ -90,8 +92,16 @@
   cursor: pointer;
 }
 @media screen and (max-width: 768px) {
-  .socialIcons {
+  /* .socialIcons {
     display: none;
+  } */
+  .sideNav {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+
+  }
+  .socialIcons {
+    margin-bottom: 11rem;
   }
 }
 
