@@ -317,6 +317,7 @@ const BetComponent = () => {
         </div>
         <div className="place_bet_container">
           <div className="place_bet_table_title_flex">
+
             <div className="place_bet_border place_bet_item">
               <div className="place_bet_left_flex">
                 <img
@@ -328,6 +329,7 @@ const BetComponent = () => {
               </div>
               <div className="place_bet_win_text">Win 2X</div>
             </div>
+            
             <div className="place_bet_table">
               <div className="place_bet_table_top_title">
                 <div className="table_text"> 17 Bets Total</div>
