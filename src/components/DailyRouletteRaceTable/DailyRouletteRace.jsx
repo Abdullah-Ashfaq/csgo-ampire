@@ -3,7 +3,7 @@ import style from './style.module.css'
 
 const DailyRouletteRace = () => {
   return (
-    <div style={{display:"flex" , justifyContent:"center"}}>
+   
     <div  className={`${style.rouletteTable} ${style.mobile_view}`}>
       <div className={style.headingBar}>
         <div className={style.heading}>Daily Roulette Race</div>
@@ -52,7 +52,7 @@ const DailyRouletteRace = () => {
         </tbody>
       </table>
     </div>
-    </div>
+    
   )
 }
 

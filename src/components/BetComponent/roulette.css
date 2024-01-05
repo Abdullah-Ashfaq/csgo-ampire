@@ -7,6 +7,7 @@
   position: relative;
   top: 4.5rem;
   border-radius: 0.75rem;
+  /* background-color: yellow; */
   width: 100%;
 }
 .roulette_title {
@@ -172,6 +173,8 @@
   background: #0e131b;
   display: flex;
   align-items: center;
+  padding: 0.3rem 0;
+  /* background-color: rebeccapurple; */
   width: 50%;
   display: flex;
   gap: 1rem;
@@ -213,11 +216,12 @@
 }
 .place_bet_container {
   display: flex;
-  justify-content: center;
-  gap: 7.5rem;
-  margin-top: 3rem;
+  /* justify-content: center;
+  gap: 7.5rem; */
+  justify-content: space-between;
+  margin-top: -2rem;
   background-color: #121c23;
-  padding-bottom: 2rem;
+  padding: 0 3rem 2rem 3rem;
   border-radius: 0.75rem;
 }
 .place_bet_container_mobile_view {
@@ -285,11 +289,12 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.2rem;
-  gap: 10rem;
+  gap: 5rem;
 }
 .place_bet_table_items_inner_flex {
   display: flex;
   gap: 0.5rem;
+  width: 120px;
   align-items: center;
 }
 .place_bet_table_inner_flex_right_items {
@@ -300,7 +305,7 @@
 .place_bet_table_title_flex {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 .table_text {
   font-family: "Proxima";
@@ -361,8 +366,8 @@
     width: 70%;
     justify-content: center;
   }
-  .place_bet_container {
-    gap: 5rem;
+  .place_bet_table_items_outer_flex {
+    gap: 9rem;
   }
 }
 @media (min-width: 1600px) {
@@ -433,7 +438,7 @@
   }
   .sequenceContainerStyle {
     position: absolute;
-    top: 30%;
+    top: 35%;
   }
   .text_previous {
     font-size: 0.6rem;
@@ -486,6 +491,7 @@
     text-align: center;
     /* background-color: yellow; */
   }
+ 
 }
 
 @media screen and (min-width: 1000px) and (max-width: 1300px) {
@@ -591,5 +597,14 @@
   }
   .place_bet_container_mobile_view {
     padding: 12rem 0 0 6rem;
+  }
+}
+@media (min-width: 1800px) {
+
+  .place_bet_table_items_outer_flex {
+    gap: 16rem;
+  }
+  .table_text {
+    font-size: 1.1rem;
   }
 }

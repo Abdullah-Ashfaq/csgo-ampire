@@ -5,15 +5,14 @@
 
 .rouletteTable {
   width: 97%;
-  height: 21.25rem;
+  /* height: 21.25rem; */
   flex-shrink: 0;
   border-radius: 0.75rem;
   border: 1px solid #18262f;
   background: #121c23;
   padding: 1.75rem 1.5rem 1.62rem 1.5rem;
-  margin-top: 5rem;
-  top: 2rem;
-  margin-bottom: 8rem;
+  margin-top: 8rem;
+  /* margin-bottom: 8rem; */
   /* color: #fff; */
 }
 .headingBar {
@@ -48,7 +47,7 @@
   text-align: left;
   color: #3d4d65;
   font-family: "Proxima";
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
   line-height: 1.3125rem; /* 175% */
@@ -68,7 +67,7 @@
 .tableBody td {
   color: #bfd1ea;
   font-family: "Proxima";
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
   line-height: 1.3125rem; /* 175% */
@@ -95,15 +94,19 @@
     display: block;
   }
   .rouletteTable {
-    width: 100%;
+    /* width: 100%;
     position: relative;
-    left: 17%;
+    left: 8%;
+    top: -6rem; */
+    width: 100%;
+    margin: 1rem 1.3rem;
+    /* background-color: yellow; */
   }
   .tableBody td {
-    font-size: 0.55rem;
+    font-size: 0.75rem;
   }
   .tableHeader th {
-    font-size: 0.55rem;
+    font-size: 0.75rem;
   }
   .headingBar .heading {
     font-size: 0.8rem;
